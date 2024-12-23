@@ -2,7 +2,7 @@ name: Build a JAR in spring boot using springboot
 on:
   push:
     branches:
-      - master
+      [ "master" ]
 
 
 
