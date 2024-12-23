@@ -34,4 +34,4 @@ jobs:
       
       # 5. 構建 Docker image
       - name: Build Docker Image
-        run: docker build -t herry505/cicd:latest .
+        run: docker build -t cicd:latest .

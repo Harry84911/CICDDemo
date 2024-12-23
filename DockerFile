@@ -1,4 +1,4 @@
 From openjdk:17-jdk-slim
 WORKDIR /app
-COPY target/CICDDemo.jar
+COPY target/CICDDemo.jar CICD.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
