@@ -1,0 +1,25 @@
+name: Dokcer build
+
+on:
+  push:
+	branches:
+	  [ "master" ]
+	  
+jobs:
+	build:
+		runs-on: ubuntu-latest
+		
+		steps:
+			# 1. 檢出代碼
+		  - name: checkout code
+		    uses: actions/checkout@v2
+			
+			# 2. 設置JDK
+		  - name: Set up JDK
+		    uses: actions/setup-java@v2
+			with:
+				java-version: '17'
+				
+			# 3. 建構專案
+		  - name: Build Project
+		    run: mvn clean package
