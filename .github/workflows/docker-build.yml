@@ -47,5 +47,5 @@ jobs:
         
       # 6. 將 Docker image push 到 Docker repo 測試
       - name: Push Image To Docker hub
-        run: docker push herry505/testrepo:lastest
+        run: docker push herry505/testrepo:latest
 
