@@ -41,8 +41,11 @@ jobs:
       # 5. 構建 Docker image
       - name: Build Docker Image
         run: docker build -t cicd:latest -f ./DockerFile .
+      # 5.5 將 docker image 加上 tag
+      - name: tag docker image
+        run: docker tag cicd:latest herry505/testrepo:latest
         
       # 6. 將 Docker image push 到 Docker repo 測試
       - name: Push Image To Docker hub
-        run: docker push cicd:lastest
+        run: docker push herry505/testrepo:lastest
 
