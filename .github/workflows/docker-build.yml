@@ -44,4 +44,4 @@ jobs:
         
       # 6. 將 Docker image push 到 Docker repo 上
       - name: Push Image To Docker hub
-        run: docker push herry505/testrepo:cicddemo
+        run: docker push herry505/testrepo:cicd:latest
