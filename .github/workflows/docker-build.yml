@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: DEV
+#    environment: DEV
     steps:
       # 1.檢出代碼
       - name: Check out code
