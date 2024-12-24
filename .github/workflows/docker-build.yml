@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    environment: DEV
+    environment: Dev
     steps:
       # 1.檢出代碼
       - name: Check out code
@@ -34,5 +34,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       # 5. 構建 Docker image
-#      - name: Build Docker Image
-#        run: docker build -t cicd:latest .
+      - name: Build Docker Image
+        run: docker build -t cicd:latest .
