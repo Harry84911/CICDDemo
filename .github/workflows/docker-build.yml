@@ -28,8 +28,8 @@ jobs:
         run: mvn clean package
         
       # 列出檔案
-      - name: list file
-        run: ls -al target
+#      - name: list file
+#        run: ls -al target
         
       # 4.登入docker hub 
       - name: Log in to Docker Hub
@@ -41,3 +41,7 @@ jobs:
       # 5. 構建 Docker image
       - name: Build Docker Image
         run: docker build -t cicd:latest -f ./DockerFile .
+        
+      # 6. 將 Docker image push 到 Docker repo 上
+      - name: Push Image To Docker hub
+        run: docker push herry505/testrepo:cicddemo
