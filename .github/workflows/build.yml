@@ -1,9 +1,11 @@
 name: Build a JAR in spring boot using springboot
+#on:
+#  push:
+#    branches:
+#      [ "master" ]
 on:
-  push:
-    branches:
-      [ "master" ]
-
+  workflow_dispatch: # 手動觸發
+    disabled: true
 
 
 jobs:
