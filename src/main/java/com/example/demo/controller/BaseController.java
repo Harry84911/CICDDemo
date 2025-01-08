@@ -8,6 +8,6 @@ public class BaseController {
 
 	@GetMapping("/t1")
 	public String test() {
-		return "CICD Test";
+		return "CICD Test 2";
 	}
 }
