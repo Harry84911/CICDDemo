@@ -11,7 +11,7 @@ pipeline {
 		
 		ARTIFACT_ID = 'CICDDemo'
 		
-		VERSION = '0.0.1-SNAPSHOT'
+		VERSION = '0.0.1'
 		
 		JAR_FILE = "${APP_NAME}-${VERSION}.jar"
 	}
