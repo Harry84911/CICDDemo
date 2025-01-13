@@ -1,0 +1,17 @@
+name: Build and analyze
+
+#on:
+#  push:
+#    branches: 
+#      [ 'master' ]
+on:
+  workflow_dispatch: # 手動觸發
+    disabled: true
+jobs: 
+  build: 
+    name: Build and analyze
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - uses: actions/checkout@v4
+      
