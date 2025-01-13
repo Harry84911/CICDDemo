@@ -10,4 +10,5 @@ public class BaseController {
 	public String test() {
 		return "CICD Test 2";
 	}
+	
 }
