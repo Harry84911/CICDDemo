@@ -35,7 +35,7 @@ pipeline {
 		stage('Archive') {
 			
 			steps {
-				archiveArtifacts artifacts: "${ARTIFACT_ID}/${JAR_FILE}"
+				archiveArtifacts artifacts: "target/${JAR_FILE}"
 			}
 		}
 		
