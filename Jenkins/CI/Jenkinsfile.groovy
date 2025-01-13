@@ -18,12 +18,12 @@ pipeline {
 	
 	// 定義構建時候的各個階段
 	stages {
-		stage('Checkout') {
-			
-			steps {
-				git 'https://github.com/Harry84911/CICDDemo.git'
-			}
-		}
+//		stage('Checkout') {
+//			
+//			steps {
+//				git 'https://github.com/Harry84911/CICDDemo.git'
+//			}
+//		}
 		
 		stage('Build') {
 			
@@ -32,6 +32,8 @@ pipeline {
 			}
 		}
 		// 將產物歸檔 供後續查看
+		// 原先是使用 ${ARTIFACT_ID}/${JAR_FILE} 去撈 jar檔案
+		// 但因為mvn package 會將jar檔放在 target資料夾 >>故改動
 		stage('Archive') {
 			
 			steps {
