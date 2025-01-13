@@ -47,6 +47,13 @@ pipeline {
 				sh "mvn test"
 			}
 		}
+		
+		stage('Send To Discord') {
+			steps {
+				echo 'Send Endup to Discord'
+				
+			}
+		}
 	}
 	
 	post {
