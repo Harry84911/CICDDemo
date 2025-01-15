@@ -15,7 +15,7 @@ pipeline {
 		
 		JAR_FILE = "${APP_NAME}-${VERSION}.jar"
 		
-		DISCORD_WEBHOOK = credentials('DC_WEBHOOK')
+		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 	}
 	
 	// 定義構建時候的各個階段
