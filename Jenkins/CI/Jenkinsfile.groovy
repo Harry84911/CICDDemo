@@ -14,6 +14,8 @@ pipeline {
 		VERSION = '0.0.1'
 		
 		JAR_FILE = "${APP_NAME}-${VERSION}.jar"
+		
+		DISCORD_WEBHOOK = credentials('DC_WEBHOOK')
 	}
 	
 	// 定義構建時候的各個階段
@@ -51,7 +53,16 @@ pipeline {
 		stage('Send To Discord') {
 			steps {
 				echo 'Send Endup to Discord'
-				
+				discordSend(
+					title: "Jenkins Pipeline",
+					description: """
+					## Job Name : ${env.JOB_NAME}
+					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
+					footer: 'Jenkins pipeline Notification',
+					result: currentBuild.currentResult,
+					webhookURL: env.DC_WEBHOOK
+					"""
+				)
 			}
 		}
 	}
