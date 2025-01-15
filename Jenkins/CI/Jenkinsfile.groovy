@@ -62,7 +62,7 @@ pipeline {
 					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
 					""",
 					footer: 'Jenkins pipeline Notification',
-//					result: currentBuild.currentResult,
+					result: currentBuild.currentResult,
 					webhookURL: env.DISCORD_WEBHOOK
 				)
 		}
