@@ -50,9 +50,11 @@ pipeline {
 			}
 		}
 		
-		stage('Send To Discord') {
-			steps {
-				echo 'Send Endup to Discord'
+	}
+	
+	post {
+		
+		always {
 				discordSend(
 					title: "Jenkins Pipeline",
 					description: """
@@ -60,14 +62,10 @@ pipeline {
 					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
 					""",
 					footer: 'Jenkins pipeline Notification',
-					result: currentBuild.currentResult,
+//					result: currentBuild.currentResult,
 					webhookURL: env.DISCORD_WEBHOOK
 				)
-			}
 		}
-	}
-	
-	post {
 		
 		success {
 			echo 'Success!'
