@@ -58,7 +58,7 @@ pipeline {
 					description: """
 					## Job Name : ${env.JOB_NAME}
 					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
-					"""
+					""",
 					footer: 'Jenkins pipeline Notification',
 					result: currentBuild.currentResult,
 					webhookURL: env.DISCORD_WEBHOOK
