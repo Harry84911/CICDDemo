@@ -53,17 +53,16 @@ pipeline {
 		stage('Send To Discord') {
 			steps {
 				echo 'Send Endup to Discord'
-				echo '${DISCORD_WEBHOOK}'
-//				discordSend(
-//					title: "Jenkins Pipeline",
-//					description: """
-//					## Job Name : ${env.JOB_NAME}
-//					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
-//					footer: 'Jenkins pipeline Notification',
-//					result: currentBuild.currentResult,
-//					webhookURL: ${DISCORD_WEBHOOK}
-//					"""
-//				)
+				discordSend(
+					title: "Jenkins Pipeline",
+					description: """
+					## Job Name : ${env.JOB_NAME}
+					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
+					footer: 'Jenkins pipeline Notification',
+					result: currentBuild.currentResult,
+					webhookURL: ${DISCORD_WEBHOOK}
+					"""
+				)
 			}
 		}
 	}
