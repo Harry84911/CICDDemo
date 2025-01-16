@@ -16,7 +16,7 @@ pipeline {
 		// 提取 discord_webhook值
 		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 		
-		SONAR_USER_TOKEN = credentials('SONAR_USER_TOKEN')
+		SONAR_USER_TOKEN = credentials('SONAR_USER_TOKEN2')
 		
 		SONAR_GLOBAL_TOKEN = credentials('SONAR_GLOBAL_TOKEN')
 	}
@@ -61,6 +61,7 @@ pipeline {
 				-D"sonar.projectKey=CICDDemo" \
 				-D"sonar.token=sqp_c651d9fe4f98b32f8a22ee91473432c7030faa88" \
 				-D"sonar.host.url=http://10.250.75.114:9000/sonarqube" \
+				-D"sonar.login=$SONAR_USER_TOKEN"
 				"""
 			}
 		}
