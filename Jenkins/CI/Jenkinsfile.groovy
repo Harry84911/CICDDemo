@@ -57,10 +57,12 @@ pipeline {
 			steps{
 				echo 'SonarQube Scan'
 				sh """
-                    mvn -B verify -Dmaven.test.failure.ignore=true \
-                    -Dsonar.token=$SONAR_GLOBAL_TOKEN \
-                    -Dsonar.projectKey=CICDDemo \
-                    org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+					mvn -B verify /
+					-D"sonar.projectKey=CICDDemo" /
+					-D"sonar.sources=." /
+					-D"sonar.host.url=http://localhost:9000" /
+					-D"sonar.token=sqp_073b4c71daeb5c6e3660ddcda46567c2feea62b1” /
+					org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				"""
 			}
 		}
