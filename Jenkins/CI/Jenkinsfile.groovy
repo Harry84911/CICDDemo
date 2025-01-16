@@ -57,11 +57,12 @@ pipeline {
 			steps{
 				echo 'SonarQube Scan'
 				sh """
-					mvn -B verify \
+					mvn -B verify sonar:sonar\
 					-D"sonar.projectKey=CICDDemo" \
 					-D"sonar.sources=." \
 					-D"sonar.token=sqp_073b4c71daeb5c6e3660ddcda46567c2feea62b1" \
-					org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+					-D"sonar.login=admin" \
+					-D"sonar.password=Admin-123456"
 				"""
 			}
 		}
