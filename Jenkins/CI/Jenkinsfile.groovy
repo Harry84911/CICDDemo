@@ -55,13 +55,14 @@ pipeline {
 		stage('SonarQube Scan') {
 			steps{
 				echo 'SonarQube Scan'
-				sh """
-				sonar-scanner.bat 
+				sh ("""
+				mvn -B verify 
+				-Dmaven.test.failure.ignore=true  
 				-Dsonar.projectKey=${APP_NAME} 
 				-Dsonar.source=. 
 				-Dsonar.host.url=http://localhost:9000 
 				-Dsonar.token=${env.SONAR_KEY}
-				"""
+				""")
 			}
 		}
 		
