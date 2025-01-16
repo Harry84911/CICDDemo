@@ -59,7 +59,6 @@ pipeline {
 				sh """
 					mvn -B verify sonar:sonar\
 					-D"sonar.projectKey=CICDDemo" \
-					-D"sonar.sources=." \
 					-D"sonar.token=sqp_c651d9fe4f98b32f8a22ee91473432c7030faa88" \
 					-D"sonar.login=admin" \
 					-D"sonar.password=admin12345"
