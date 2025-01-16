@@ -57,7 +57,7 @@ pipeline {
 				sh """
                     mvn -B verify -Dmaven.test.failure.ignore=true \
                     -Dsonar.login=$SONAR_KEY \
-                    -Dsonar.projectKey=OMS-LineMonitoring-New \
+                    -Dsonar.projectKey=CICDDemo \
                     org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				"""
 			}
