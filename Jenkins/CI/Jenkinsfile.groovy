@@ -56,7 +56,6 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh ("""
 				mvn -B verify 
-				-Dsonar.source=. 
 				-Dsonar.host.url=http://localhost:9000 
 				-Dsonar.token=$SONAR_KEY
 				""")
