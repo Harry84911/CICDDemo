@@ -54,12 +54,12 @@ pipeline {
 		stage('SonarQube Scan') {
 			steps{
 				echo 'SonarQube Scan'
-				sh ("""
+				sh """
                     mvn -B verify -Dmaven.test.failure.ignore=true \
-                    -Dsonar.login=$SONAR_TOKEN \
+                    -Dsonar.login=$SONAR_KEY \
                     -Dsonar.projectKey=OMS-LineMonitoring-New \
                     org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-				""")
+				"""
 			}
 		}
 		
