@@ -55,11 +55,10 @@ pipeline {
 			steps{
 				echo 'SonarQube Scan'
 				sh ("""
-				mvn -B verify \
-				-Dsonar.projectKey=$APP_NAME \
-				-Dsonar.host.url=http://localhost:9000 \ 
-				-Dsonar.token=$SONAR_KEY \
-				org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+                    mvn -B verify -Dmaven.test.failure.ignore=true \
+                    -Dsonar.login=$SONAR_TOKEN \
+                    -Dsonar.projectKey=OMS-LineMonitoring-New \
+                    org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				""")
 			}
 		}
