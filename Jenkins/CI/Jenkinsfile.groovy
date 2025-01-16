@@ -4,7 +4,6 @@ pipeline {
 	
 	// 環境變數
 	environment {
-		
 		MAVEN_OPTS = '-Dmaven.repo.local=.m2/repository'
 		
 		APP_NAME = 'CICDDemo'
@@ -57,10 +56,10 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh ("""
 				mvn -B verify 
-				-Dsonar.projectKey=${APP_NAME} 
+				-Dsonar.projectKey=$APP_NAME
 				-Dsonar.source=. 
 				-Dsonar.host.url=http://localhost:9000 
-				-Dsonar.token=${env.SONAR_KEY}
+				-Dsonar.token=$SONAR_KEY
 				""")
 			}
 		}
