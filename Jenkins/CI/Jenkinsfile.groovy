@@ -56,8 +56,9 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh ("""
 				mvn -B verify 
-				-Dsonar.host.url=http://localhost:9000 
-				-Dsonar.token=$SONAR_KEY
+				-Dsonar.projectKey=$APP_NAME
+				-Dsonar.token=$SONAR_KEY 
+				org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				""")
 			}
 		}
