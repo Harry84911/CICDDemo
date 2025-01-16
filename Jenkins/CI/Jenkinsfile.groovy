@@ -60,7 +60,7 @@ pipeline {
 				-Dsonar.projectKey=${APP_NAME} 
 				-Dsonar.source=. 
 				-Dsonar.host.url=http://localhost:9000 
-				-Dsonar.token=${SONAR_KEY}
+				-Dsonar.token=${env.SONAR_KEY}
 				"""
 			}
 		}
