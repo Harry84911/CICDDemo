@@ -57,7 +57,10 @@ pipeline {
 			steps{
 				echo 'SonarQube Scan'
 				sh """
-
+				mvn -B verify sonar:sonar\
+				-D"sonar.projectKey=CICDDemo" \
+				-D"sonar.token=sqp_c651d9fe4f98b32f8a22ee91473432c7030faa88" \
+				-D"sonar.host.url=http://10.250.75.114:9000/sonarqube" \
 				"""
 			}
 		}
