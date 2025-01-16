@@ -16,7 +16,9 @@ pipeline {
 		// 提取 discord_webhook值
 		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 		
-		SONAR_KEY = credentials('SONAR_GLOBAL_TOKEN')
+		SONAR_USER_TOKEN = credentials('SONAR_USER_TOKEN')
+		
+		SONAR_GLOBAL_TOKEN = credentials('SONAR_GLOBAL_TOKEN')
 	}
 	
 	// 定義構建時候的各個階段
@@ -56,7 +58,8 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh """
                     mvn -B verify -Dmaven.test.failure.ignore=true \
-                    -Dsonar.login=$SONAR_KEY \
+                    -Dsonar.login=$SONAR_USER_TOKEN \
+                    -Dsonar.token=$SONAR_GLOBAL_TOKEN
                     -Dsonar.projectKey=CICDDemo \
                     org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				"""
