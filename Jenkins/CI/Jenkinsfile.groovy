@@ -58,7 +58,7 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh """
                     mvn -B verify -Dmaven.test.failure.ignore=true \
-                    -Dsonar.login=$SONAR_GLOBAL_TOKEN \
+                    -Dsonar.token=$SONAR_GLOBAL_TOKEN \
                     -Dsonar.projectKey=CICDDemo \
                     org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				"""
