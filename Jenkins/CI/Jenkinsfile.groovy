@@ -16,7 +16,7 @@ pipeline {
 		// 提取 discord_webhook值
 		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 		
-		SONAR_USER_TOKEN = credentials('SONAR_USER_TOKEN')
+		SONAR_TOKEN = credentials('OMS_LINEMONITORING_SONAR_TOKEN')
 		
 		SONAR_GLOBAL_TOKEN = credentials('SONAR_GLOBAL_TOKEN')
 	}
@@ -58,9 +58,8 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh """
                     mvn -B verify -Dmaven.test.failure.ignore=true \
-                    -Dsonar.login=$SONAR_USER_TOKEN \
-                    -Dsonar.token=$SONAR_GLOBAL_TOKEN \
-                    -Dsonar.projectKey=CICDDemo \
+                    -Dsonar.login=$SONAR_TOKEN \
+                    -Dsonar.projectKey=harry-test \
                     org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 				"""
 			}
