@@ -16,7 +16,7 @@ pipeline {
 		// 提取 discord_webhook值
 		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 		
-		SONAR_KEY = credentials('SONAR_KEY')
+		SONAR_KEY = credentials('SONAR_GLOBAL_TOKEN')
 	}
 	
 	// 定義構建時候的各個階段
