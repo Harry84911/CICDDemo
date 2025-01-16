@@ -14,7 +14,10 @@ pipeline {
 		VERSION = '0.0.1'
 		
 		JAR_FILE = "${APP_NAME}-${VERSION}.jar"
+		// 提取 discord_webhook值
+		DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
 		
+		SONAR_KEY = credentials('SONAR_KEY')
 	}
 	
 	// 定義構建時候的各個階段
@@ -46,6 +49,19 @@ pipeline {
 			steps {
 				echo 'Running tests'
 				sh "mvn test"
+			}
+		}
+		
+		stage('SonarQube Scan') {
+			steps{
+				echo 'SonarQube Scan'
+				sh """
+				sonar-scanner.bat 
+				-Dsonar.projectKey=${APP_NAME} 
+				-Dsonar.source=. 
+				-Dsonar.host.url=http://localhost:9000 
+				-Dsonar.token=${SONAR_KEY}
+				"""
 			}
 		}
 		
