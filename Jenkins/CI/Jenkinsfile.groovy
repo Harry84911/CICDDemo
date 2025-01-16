@@ -57,7 +57,6 @@ pipeline {
 				echo 'SonarQube Scan'
 				sh ("""
 				mvn -B verify 
-				-Dmaven.test.failure.ignore=true  
 				-Dsonar.projectKey=${APP_NAME} 
 				-Dsonar.source=. 
 				-Dsonar.host.url=http://localhost:9000 
