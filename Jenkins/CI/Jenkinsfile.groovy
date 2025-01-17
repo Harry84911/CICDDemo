@@ -18,6 +18,8 @@ pipeline {
 		
 		SONAR_HOST_URL = 'http://10.250.75.114:9000/sonarqube'
 		
+		SONAR_RESULT_URL = 'http://10.250.75.114:9000/sonarqube/dashboard?id=CICDDemo'
+		
 		SONAR_USER_TOKEN = credentials('SONAR_USER_TOKEN2')
 		
 		SONAR_TEST_TOKEN = credentials('SONAR_TEST_TOKEN')
@@ -78,6 +80,7 @@ pipeline {
 					description: """
 					## Job Name : ${env.JOB_NAME}
 					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
+					SonarQube Result: $SONAR_RESULT_URL
 					""",
 					footer: 'Jenkins pipeline Notification',
 					result: currentBuild.currentResult,
