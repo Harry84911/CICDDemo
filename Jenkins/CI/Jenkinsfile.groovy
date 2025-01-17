@@ -81,6 +81,7 @@ pipeline {
 					## Job Name : ${env.JOB_NAME}
 					### Build: [${env.BUILD_NUMBER}](${env.BUILD_URL})
 					SonarQube Result: $SONAR_RESULT_URL
+					Test Result: ${env.BUILD_URL}testResport
 					""",
 					footer: 'Jenkins pipeline Notification',
 					result: currentBuild.currentResult,
